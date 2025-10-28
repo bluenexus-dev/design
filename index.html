@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Nexus | Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicons/favicon.design.png" type="image/png">
+
+  <style>
+    :root {
+      /* Main colours */
+      --main-bg: #2c2c2c;
+      --side-bg: #3a3a3a;
+      --header-bg: #141414;
+      --footer-bg: #141414;
+      --text-color: #ffffff;
+      --bn-blue: #4A90E2;
+
+      /* Subdomain colours */
+      --knowledge-color: #F5A623;
+      --tools-color: #50E3C2;
+      --coding-color: #188038;
+      --play-color: #9013FE;
+      --picker-color: #B8E986;
+      --design-color: #D0021B;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--side-bg);
+      color: var(--text-color);
+    }
+
+    .main-content {
+      width: 60%;
+      margin: 0 auto;
+      background-color: var(--main-bg);
+      padding: 2rem 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    header.main-header {
+      background-color: var(--header-bg);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-logo {
+      height: 180px;
+      width: auto;
+      position: absolute;
+      left: 20%;
+    }
+
+    footer.main-footer {
+      background-color: var(--footer-bg);
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    /* Back button */
+    .back-button {
+      position: absolute;
+      top: 24px;
+      right: 48px;
+      background-color: var(--design-color);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-button:hover {
+      opacity: 0.85;
+    }
+
+    /* Font section */
+    .font-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .font-section h2 {
+      color: var(--design-color);
+      margin-bottom: 1rem;
+    }
+
+    .font-sample {
+      margin: 0.5rem 0;
+    }
+
+    .font-regular { font-weight: 400; }
+    .font-bold { font-weight: 700; }
+    .font-light { font-weight: 300; }
+
+    /* Colour palette */
+    .palette-section {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .palette-section h2 {
+      color: var(--design-color);
+      margin-bottom: 1rem;
+    }
+
+    .palette-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #141414;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      margin: 1rem auto;
+      width: 70%;
+    }
+
+    .palette-item img {
+      height: 120px;
+      width: auto;
+    }
+
+    .color-box {
+      width: 90px;
+      height: 90px;
+      border-radius: 10px;
+      border: 2px solid #fff;
+      margin-left: 2rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .color-hex {
+      margin-left: 1rem;
+      font-weight: 600;
+    }
+
+    /* Global colours row */
+    .global-colors {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      flex-wrap: wrap;
+    }
+
+    .global-color {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .global-color .color-box {
+      margin: 0;
+    }
+
+    /* Side Tab */
+    #side-tab {
+      position: fixed;
+      left: -120px;
+      top: 40%;
+      height: 60px;
+      background-color: var(--design-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 0 10px 10px 0;
+      font-weight: bold;
+      text-decoration: none;
+      transition: left 0.4s ease;
+      padding: 0 10px;
+      width: 150px;
+      z-index: 1000;
+      cursor: pointer;
+      color: #141414;
+    }
+
+    #side-tab:hover {
+      left: 0;
+      width: 180px;
+    }
+
+    #side-tab img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      display: inline;
+    }
+
+    #side-tab span {
+      display: inline;
+      color: #141414;
+    }
+
+    /* Bottom Button */
+    #popup-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--design-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.18s ease, transform 0.12s ease;
+      z-index: 2500;
+      border: none;
+      padding: 0;
+    }
+
+    #popup-button:hover {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+
+    #popup-button img {
+      width: 60%;
+      height: 60%;
+      object-fit: contain;
+    }
+
+    /* Popup Modal */
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--main-bg);
+      border: 2px solid var(--design-color);
+      border-radius: 12px;
+      width: 400px;
+      padding: 1.5rem;
+      display: none;
+      z-index: 3000;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    #popup h2 {
+      color: var(--design-color);
+      margin-top: 0;
+    }
+
+    #popup-close {
+      background: var(--design-color);
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      float: right;
+    }
+
+    #popup p {
+      color: #fff;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <img src="images/logos/logo.design.png" alt="Blue Nexus Design Logo" class="header-logo">
+    <button class="back-button" onclick="history.back()">Back</button>
+  </header>
+
+  <!-- Side Tab -->
+  <div id="side-tab">
+    <span>TAB</span>
+    <img src="images/misc/flask.png" alt="Tab Icon">
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="font-section">
+      <h2>Font</h2>
+      <p class="font-sample font-regular">Poppins Regular</p>
+      <p class="font-sample font-bold">Poppins Bold</p>
+      <p class="font-sample font-light">Poppins Light</p>
+    </section>
+
+    <section class="palette-section">
+      <h2>Colour Palette</h2>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.knowledge.png" alt="Knowledge Logo">
+        <div class="color-box" style="background: var(--knowledge-color);">#F5A623</div>
+      </div>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.tools.png" alt="Tools Logo">
+        <div class="color-box" style="background: var(--tools-color);">#50E3C2</div>
+      </div>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.coding.png" alt="Coding Logo">
+        <div class="color-box" style="background: var(--coding-color);">#188038</div>
+      </div>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.play.png" alt="Play Logo">
+        <div class="color-box" style="background: var(--play-color);">#9013FE</div>
+      </div>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.picker.png" alt="Picker Logo">
+        <div class="color-box" style="background: var(--picker-color);">#B8E986</div>
+      </div>
+
+      <div class="palette-item">
+        <img src="images/logos/logo.design.png" alt="Design Logo">
+        <div class="color-box" style="background: var(--design-color);">#D0021B</div>
+      </div>
+    </section>
+
+    <section class="global-colors">
+      <div class="global-color">
+        <div class="color-box" style="background: var(--main-bg);">#2C2C2C</div>
+        <small>Main BG</small>
+      </div>
+      <div class="global-color">
+        <div class="color-box" style="background: var(--side-bg);">#3A3A3A</div>
+        <small>Side BG</small>
+      </div>
+      <div class="global-color">
+        <div class="color-box" style="background: var(--header-bg);">#141414</div>
+        <small>Header</small>
+      </div>
+      <div class="global-color">
+        <div class="color-box" style="background: var(--footer-bg);">#141414</div>
+        <small>Footer</small>
+      </div>
+      <div class="global-color">
+        <div class="color-box" style="background: var(--bn-blue);">#4A90E2</div>
+        <small>BN Blue</small>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>© 2025 Blue Nexus. All rights reserved.</p>
+  </footer>
+
+  <!-- Popup Button -->
+  <div id="popup-button">
+    <img src="images/misc/flask.png" alt="Popup Icon">
+  </div>
+
+  <!-- Popup Modal -->
+  <div id="popup">
+    <button id="popup-close">Close</button>
+    <h2>Pop-Up</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Suspendisse eget elit ac justo cursus facilisis. Integer convallis justo sit amet augue tincidunt, nec cursus ipsum ultrices.</p>
+  </div>
+
+  <script>
+    const popupButton = document.getElementById('popup-button');
+    const sideTab = document.getElementById('side-tab');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('popup-close');
+
+    popupButton.addEventListener('click', () => popup.style.display = 'block');
+    sideTab.addEventListener('click', () => popup.style.display = 'block');
+    closeBtn.addEventListener('click', () => popup.style.display = 'none');
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
